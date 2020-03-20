@@ -1,0 +1,4 @@
+<?php
+$appid = '';
+$appsecret = '';
+?>

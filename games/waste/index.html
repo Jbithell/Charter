@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<title>Are you a Sidewaste or Wasteside?</title>
+<style>
+.outer {
+    display: table;
+    position: absolute;
+    height: 95%;
+    width: 95%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: /*whatever width you want*/;
+}
+</style>
+</head>
+<body>
+<div class="outer">
+<div class="middle">
+<div class="inner">
+<img src="waste.gif" alt="Waste being collected" style="position: relative; width: 220px; height: 179px;" id="waste" />
+<center><h1 id="text"></h1></center>
+</div>
+</div>
+</div>
+<script>
+if (Math.floor((Math.random() * 2) + 1) == 1) {
+	var wasteside = true;
+	var sidewaste = false;
+	var text = 'You are a man who collects the rubbish while standing on the side. (Wasteside)';
+} else {
+	var wasteside = false;
+	var sidewaste = true;
+	var text = 'You are a man who stands on the side collecting rubbish. (Sidewaste)';
+}
+$(document).ready(function(e) {
+    width = "+=" + ($(document).width() - ($("#waste").width() + 10));
+    $("#waste").animate({
+		left: width
+	  }, 5000, function() {
+	  $("#text").append(text);
+     // Animation complete.
+  });
+});
+
+</script>
+</body>
+</html>
